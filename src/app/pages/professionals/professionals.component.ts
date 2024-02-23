@@ -42,14 +42,12 @@ mostrarTodosProfesionales(): void {
     });
   }
 
-  
-mostrarUnProfesional(firstName: string, lastName: string): void {
-  this.apiService.getOne(firstName, lastName).subscribe({
+
+mostrarUnProfesional(firstName: HTMLInputElement, lastName: HTMLInputElement): void {
+  this.apiService.getOne(firstName.value, lastName.value).subscribe({
     next: (resp: Respuesta) => {
       console.log(resp);
-      // 応答データをコンポーネントのプロパティに割り当てる
-      this.professionals = resp[0]; // respがオブジェクトの場合、そのまま割り当てる
-      // this.professionalData = resp[0]; // respが配列で、特定の要素のみが必要な場合
+      this.professional = resp.data; 
     },
     error: (error) => {
       console.log('Error: ', error);

@@ -5,5 +5,5 @@ export class Respuesta {
         public error: boolean,
         public codigo: number,
         public mensaje: string,
-        public data: Professional[]){}
+        public data: Professional){}
 }

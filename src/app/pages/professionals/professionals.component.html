@@ -6,39 +6,39 @@
                 <tbody>
                 <tr>
                     <th scope="row">First Name</th>
-                    <td><input id="firstName"></td>
+                    <td><input id="firstName" #firstName></td>
                 </tr>
                 <tr>
                     <th scope="row">Last Name</th>
-                    <td><input id="lastName"></td>
+                    <td><input id="lastName" #lastName></td>
                 </tr>    
                 <tr>
                     <th scope="row">Age</th>
-                    <td><input id="age"></td>
+                    <td><input id="age" #age></td>
                 </tr>
                 <tr>
                     <th scope="row">Weight</th>
-                    <td><input id="weight"></td>
+                    <td><input id="weight" #weight></td>
                 </tr>
                 <tr>
                     <th scope="row">Height</th>
-                    <td><input id="height"></td>
+                    <td><input id="height" #height></td>
                 </tr>
                 <tr>
                     <th scope="row">Retired</th>
-                    <td><input id="isRetired"></td>
+                    <td><input id="isRetired" #isRetired></td>
                 </tr>
                 <tr>
                     <th scope="row">Nationality</th>
-                    <td><input id="nationality"></td>
+                    <td><input id="nationality" #nationality></td>
                 </tr>
                 <tr>
                     <th scope="row">Number of Oscar</th>
-                    <td><input id="oscarNumber"></td>
+                    <td><input id="oscarNumber" #oscarNumber></td>
                 </tr>
                 <tr>
                     <th scope="row">Profession</th>
-                    <td><input id="profession"></td>
+                    <td><input id="profession" #profession></td>
                 </tr>
                 </tbody>
             </table>
@@ -46,12 +46,12 @@
             <div class="d-grid gap-20">
                 <button type="button" 
                         class="btn btn-outline-primary mb-3"
-                        onclick = "mostrarUnProfesional()">
+                        (click) = "mostrarUnProfesional(firstName, lastName)">
                         Mostrar
                 </button>
                 <button type="button" 
                 class="btn btn-outline-primary mb-3"
-                onclick = "postUser()">
+                click = "postUser()">
                 Crear
                 </button>
                 <button type="button" 
