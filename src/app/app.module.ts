@@ -23,7 +23,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { CardComponent } from './pages/card/card.component';
+
+import { CardComponent } from './components/card/card.component';
+import { HeightPipe } from './pipes/height.pipe';
+import { WeightPipe } from './pipes/weight.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { CardComponent } from './pages/card/card.component';
     HeaderComponent,
     HomeComponent,
     ProfessionalsComponent,
-    CardComponent
+    CardComponent,
+    HeightPipe,
+    WeightPipe
   ],
   imports: [
     BrowserModule,
