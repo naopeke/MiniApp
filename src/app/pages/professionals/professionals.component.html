@@ -56,51 +56,18 @@
                 </button>
                 <button type="button" 
                 class="btn btn-outline-primary mb-3"
-                onclick = "postUser()">
+                (click) = "modificarProfesional(firstName.value, lastName.value, age.value, weight.value, height.value, isRetired.value, nationality.value, oscarNumber.value, profession.value)">
                 Actualizar
                 </button>
                 <button type="button" 
                 class="btn btn-outline-primary mb-3"
-                onclick = "postUser()">
+                (click) = "eliminarProfesional(firstName.value)">
                 Eliminar
                 </button>
             </div>
     </div>
 
 
-    <div class="col-md-4">
-    <div class="d-grid gap-20">
-        <table class="table table-borderless">
-            <tbody>
-                <tr>
-                    <th scope="row">Search by Name</th>
-                    <td><input id="search"></td>
-                </tr>
-                <tr>
-                    <th scope="row">Name</th>
-                    <td><input id="mostrarName"></td>
-                </tr>
-                <tr>
-                    <th scope="row">Email</th>
-                    <td><input type="email" id="mostrarEmail" required></td>
-                </tr>
-                <tr>
-                    <th scope="row">Role</th>
-                    <td><input id="mostrarRole" required></td>
-                </tr>  
-                <tr>
-                    <th scope="row">Verified</th>
-                    <td><input id="mostrarVerified" required></td>
-                </tr>       
-            </tbody>
-        </table>
-        <button type="button" 
-                class="btn btn-outline-primary"
-                onclick = "getUser()">
-                Mostrar
-        </button>  
-    </div>
-</div>
 <hr>
 <div *ngIf="!professionalDetail">
     <div class="row">

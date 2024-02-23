@@ -81,7 +81,45 @@ crearProfesional(firstName: string, lastName:string, age:number, weight:number, 
 }
 
 
+modificarProfesional(firstName: string, lastName:string, age:number, weight:number, height:number, isRetired:boolean, nationality:string, oscarNumber:number, profession:string){
+ 
+    let updatedProfessional = new Professional (
+      firstName, lastName, age, weight, height, isRetired, nationality, oscarNumber, profession );
+    console.log(updatedProfessional);
   
+    this.apiService.edit(updatedProfessional).subscribe({
+      next: (resp) => {
+        console.log('Response from server:', resp);
+        alert('created');
+        
+        this.router.navigate(['/profesionales']).then(() => {
+          this.mostrarTodosProfesionales();
+        });
+      },
+      error: (error) => {
+        console.error('Error creating professional:', error);
+        alert('error');
+      }
+    });
+  }
+
+  eliminarProfesional(firstName: string){
+    this.apiService.delete(firstName).subscribe({
+      next: (resp) => {
+        console.log('Response from server:', resp);
+        alert('deleated');
+        
+        this.router.navigate(['/profesionales']).then(() => {
+          this.mostrarTodosProfesionales();
+        });
+      },
+      error: (error) => {
+        console.error('Error creating professional:', error);
+        alert('error');
+      }
+    });
+  }
+
 
 
   ngOnInit(): void {

@@ -34,9 +34,9 @@ export class ProfessionalService {
     return this.http.put(this.url, professional);
   };
 
-  public delete(professional:Professional):Observable<Object>{
-    console.log(professional);
-    return this.http.delete(this.url, {body: {professional:professional}})
+  public delete(firstName: string):Observable<Object>{
+    console.log(firstName);
+    return this.http.delete(this.url, {body: {firstName}})
   };
 
 
