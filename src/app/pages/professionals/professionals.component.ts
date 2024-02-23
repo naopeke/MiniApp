@@ -13,17 +13,14 @@ import { Respuesta } from 'src/app/models/respuesta';
 export class ProfessionalsComponent implements OnInit{
 public professional: Professional;
 public professionals: Professional[];
+public professionalDetail:any;
 
-public parametro: string;
 
 constructor(public  apiService: ProfessionalService,
   private router: Router,
   private rutaActiva: ActivatedRoute,
 ) {  
 
-
-// get bookid from URL
-this.parametro = this.rutaActiva.snapshot.params.bookid;
 }
 
 mostrarTodosProfesionales(): void {
@@ -43,11 +40,13 @@ mostrarTodosProfesionales(): void {
   }
 
 
-mostrarUnProfesional(firstName: HTMLInputElement, lastName: HTMLInputElement): void {
-  this.apiService.getOne(firstName.value, lastName.value).subscribe({
+mostrarUnProfesional(firstName: string, lastName: string): void {
+  this.apiService.getOne(firstName, lastName).subscribe({
     next: (resp: Respuesta) => {
       console.log(resp);
-      this.professional = resp.data; 
+      this.professionalDetail = resp[0];
+      console.log('Detail: ', this.professionalDetail);
+      this.router.navigate(['/profesionales'], { queryParams: { firstName, lastName } });
     },
     error: (error) => {
       console.log('Error: ', error);
@@ -58,6 +57,28 @@ mostrarUnProfesional(firstName: HTMLInputElement, lastName: HTMLInputElement): v
   });
 }
 
+
+crearProfesional(firstName: string, lastName:string, age:number, weight:number, height:number, isRetired:boolean, nationality:string, oscarNumber:number, profession:string){
+  let newProfessional: Professional = new Professional(
+    firstName, lastName, age, weight, height, isRetired, nationality, oscarNumber, profession 
+  );
+  console.log('Created professional: ', newProfessional);
+
+  this.apiService.add(newProfessional).subscribe({
+    next: (resp) => {
+      console.log('Response from server:', resp);
+      alert('created');
+      
+      this.router.navigate(['/profesionales']).then(() => {
+        this.mostrarTodosProfesionales();
+      });
+    },
+    error: (error) => {
+      console.error('Error creating professional:', error);
+      alert('error');
+    }
+  });
+}
 
 
   

@@ -46,13 +46,13 @@
             <div class="d-grid gap-20">
                 <button type="button" 
                         class="btn btn-outline-primary mb-3"
-                        (click) = "mostrarUnProfesional(firstName, lastName)">
+                        (click) = "mostrarUnProfesional(firstName.value, lastName.value)">
                         Mostrar
                 </button>
                 <button type="button" 
-                class="btn btn-outline-primary mb-3"
-                click = "postUser()">
-                Crear
+                        class="btn btn-outline-primary mb-3"
+                        (click) = "crearProfesional(firstName.value, lastName.value, age.value, weight.value, height.value, isRetired.value, nationality.value, oscarNumber.value, profession.value)">
+                        Crear
                 </button>
                 <button type="button" 
                 class="btn btn-outline-primary mb-3"
@@ -102,10 +102,18 @@
     </div>
 </div>
 <hr>
-<div class="row">
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-        <div *ngFor="let professional of professionals; let i = index" class="p-2"> 
-        <app-card [childCard]="professional"></app-card>
+<div *ngIf="!professionalDetail">
+    <div class="row">
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            <div *ngFor="let professional of professionals; let i = index" class="p-2"> 
+            <app-card [childCard]="professional"></app-card>
+            </div>
         </div>
     </div>
 </div>
+
+<div *ngIf="professionalDetail" [ngClass]="{'card-detail': professionalDetail}">
+    <div class="professional-detail d-flex flex-row flex-wrap justify-content-center">
+        <app-card [childCard]="professionalDetail"></app-card>
+    </div>
+
