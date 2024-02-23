@@ -4,8 +4,9 @@ import { ProfessionalsComponent } from './pages/professionals/professionals.comp
 import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent },
-  { path: 'professionals', component: ProfessionalsComponent },
+  { path: 'profesionales', component: ProfessionalsComponent },
 ];
 
 @NgModule({

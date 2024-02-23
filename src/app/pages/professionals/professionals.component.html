@@ -1,1 +1,111 @@
-<p>professionals works!</p>
+
+<div class = "contenedor mt-4" style="margin: 20px">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table table-borderless">
+                <tbody>
+                <tr>
+                    <th scope="row">First Name</th>
+                    <td><input id="firstName"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Last Name</th>
+                    <td><input id="lastName"></td>
+                </tr>    
+                <tr>
+                    <th scope="row">Age</th>
+                    <td><input id="age"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Weight</th>
+                    <td><input id="weight"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Height</th>
+                    <td><input id="height"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Retired</th>
+                    <td><input id="isRetired"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Nationality</th>
+                    <td><input id="nationality"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Number of Oscar</th>
+                    <td><input id="oscarNumber"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Profession</th>
+                    <td><input id="profession"></td>
+                </tr>
+                </tbody>
+            </table>
+        
+            <div class="d-grid gap-20">
+                <button type="button" 
+                        class="btn btn-outline-primary mb-3"
+                        onclick = "mostrarUnProfesional()">
+                        Mostrar
+                </button>
+                <button type="button" 
+                class="btn btn-outline-primary mb-3"
+                onclick = "postUser()">
+                Crear
+                </button>
+                <button type="button" 
+                class="btn btn-outline-primary mb-3"
+                onclick = "postUser()">
+                Actualizar
+                </button>
+                <button type="button" 
+                class="btn btn-outline-primary mb-3"
+                onclick = "postUser()">
+                Eliminar
+                </button>
+            </div>
+    </div>
+
+
+    <div class="col-md-4">
+    <div class="d-grid gap-20">
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <th scope="row">Search by Name</th>
+                    <td><input id="search"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td><input id="mostrarName"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td><input type="email" id="mostrarEmail" required></td>
+                </tr>
+                <tr>
+                    <th scope="row">Role</th>
+                    <td><input id="mostrarRole" required></td>
+                </tr>  
+                <tr>
+                    <th scope="row">Verified</th>
+                    <td><input id="mostrarVerified" required></td>
+                </tr>       
+            </tbody>
+        </table>
+        <button type="button" 
+                class="btn btn-outline-primary"
+                onclick = "getUser()">
+                Mostrar
+        </button>  
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        <div *ngFor="let professional of professionals; let i = index" class="p-2"> 
+        <app-card [childCard]="professional"></app-card>
+        </div>
+    </div>
+</div>

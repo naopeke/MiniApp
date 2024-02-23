@@ -1,0 +1,16 @@
+body {
+    background-image: url('/assets/images/home.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+} 
+
+.title-wrapper{
+    padding-top: 200px;
+    padding-left: 300px;
+    font-size: 40px;
+}
+
+.mat-button{
+    font-size: 30px;
+}
